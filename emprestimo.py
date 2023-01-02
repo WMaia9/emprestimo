@@ -3,7 +3,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
-st.title('App Empréstimo POLI USP')
+st.title('App Empréstimo')
 st.text(" ")
 st.text(" ")
 
@@ -12,8 +12,8 @@ img = Image.open('Emprestimo.jpg')
 st.image(img)
 
 # Variáveis
-st.sidebar.header('Preencha o Requerimento')
-credit = st.sidebar.selectbox('Medelo Preditivo', list(['Sem Hitórico de Crédito', 'Com Hitórico de Crédito']))
+st.sidebar.header('Requerimento')
+credit = st.sidebar.selectbox('Medelo', list(['Sem Hitórico de Crédito', 'Com Hitórico de Crédito']))
 Gender = st.sidebar.selectbox('Gênero', list(['Masculino', 'Feminino']))
 Married = st.sidebar.selectbox('Casado', list(['Não', 'Sim']))
 Dependents = st.sidebar.selectbox("Nº Dependentes", list([0, 1, 2, '3+']))
@@ -21,11 +21,11 @@ Education = st.sidebar.selectbox('Escolaridade', list(['Ensino Médio', 'Superio
 Self_Employed = st.sidebar.selectbox('Autônomo', list(['Não', 'Sim']))
 ApplicantIncome = st.sidebar.number_input("Sua Renda", 0)
 CoapplicantIncome = st.sidebar.number_input("Renda Do Fiador", 0)
-LoanAmount = st.sidebar.number_input("Montante do Empréstimo em Milhares", 0)
+LoanAmount = st.sidebar.number_input("Montante do Empréstimo", 0)
 Loan_Amount_Term = st.sidebar.slider("Prazo do Empréstimo (Meses)", 1, 360, 1)
-Credit_History = st.sidebar.selectbox('Histórico de Crédito', list(['Não', 'Sim']))
 Property_Area = st.sidebar.selectbox('Localização da Propriedade', list(['Urbano', 'Semi Urbano', 'Rural']))
-btn_predict = st.sidebar.button("REALIZAR PREDIÇÃO")
+Credit_History = st.sidebar.selectbox('Histórico de Crédito', list(['Não', 'Sim']))
+btn_predict = st.sidebar.button("REALIZAR ANÁLISE DE CRÉDITO")
 
 if btn_predict:
     #DataFrame
@@ -40,7 +40,7 @@ if btn_predict:
     y = df['LoanAmount']
 
     if x[0] == 0 | y[0] == 0:
-        st.header("Sua Renda e Montande de Empréstimo Precisam sem Diferentes de 0!")
+        st.header("Sua Renda e Montante do Empréstimo Precisam sem Diferentes de 0!")
 
     else:
         df['Gender'] = df['Gender'].map({'Masculino': 1, 'Feminino': 0})
