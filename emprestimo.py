@@ -37,7 +37,7 @@ if btn_predict:
     df = pd.DataFrame(head)
 
     x = df['ApplicantIncome']
-    y = df['LoanAmount']/1000
+    y = df['LoanAmount']/10000
     print(y)
 
     if x[0] == 0:
