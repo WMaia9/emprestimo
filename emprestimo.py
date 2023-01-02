@@ -22,6 +22,7 @@ Self_Employed = st.sidebar.selectbox('Autônomo', list(['Não', 'Sim']))
 ApplicantIncome = st.sidebar.number_input("Sua Renda", 0)
 CoapplicantIncome = st.sidebar.number_input("Renda Do Fiador", 0)
 LoanAmount = st.sidebar.number_input("Montante do Empréstimo", 0)
+LoanAmount = LoanAmount/1000
 Loan_Amount_Term = st.sidebar.slider("Prazo do Empréstimo (Meses)", 1, 360, 1)
 Property_Area = st.sidebar.selectbox('Localização da Propriedade', list(['Urbano', 'Semi Urbano', 'Rural']))
 Credit_History = st.sidebar.selectbox('Histórico de Crédito', list(['Não', 'Sim']))
