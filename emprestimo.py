@@ -37,10 +37,10 @@ if btn_predict:
     df = pd.DataFrame(head)
 
     x = df['ApplicantIncome']
-    y = df['LoanAmount'] / 1000
+    y = df['LoanAmount']/1000
     print(y)
 
-    if x[0] == 0 | y[0] == 0:
+    if x[0] == 0:
         st.header("Sua Renda e Montante do Empréstimo Precisam ser Diferentes de 0!")
 
     else:
